@@ -1,0 +1,10 @@
+1) Para criar:
+npm install -g json-server
+ou
+npm install json-server
+
+2) Para rodar:
+
+json-server --watch db.json --port 3004
+ou 
+npx json-server --watch db.json --port 3004
