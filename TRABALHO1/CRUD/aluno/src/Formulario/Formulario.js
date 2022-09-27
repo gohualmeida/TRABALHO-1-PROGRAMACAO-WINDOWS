@@ -1,5 +1,6 @@
 
 import React from 'react'
+import axios from 'axios';
 
 class Formulario extends React.Component {
     constructor(props) {
@@ -20,9 +21,22 @@ class Formulario extends React.Component {
 
   
     handleSubmit(event) {
-      alert('Nome : ' + this.state.nome +"\n Email : " + this.state.email
-      + "\n Descricao : " + this.state.descricao + "\n Duração : " + this.state.duracao);
+      // alert('Nome : ' + this.state.nome +"\n Email : " + this.state.email
+      // + "\n Descricao : " + this.state.descricao + "\n Duração : " + this.state.duracao);
+      
+      
+      const dados = this.state;
+      axios.put('http://localhost:4000/dadosFormulario/1', dados)
+          .then(response => 
+            {if (JSON.stringify(response.status) == 200) { alert("ok" )} else {alert("erro")}
+            
+    }     );
+  
+      
       event.preventDefault();
+
+
+
     }
   
     render() {
